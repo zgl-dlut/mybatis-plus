@@ -5,4 +5,8 @@
 	<update id = "updateGoodsByIdVersion" parameterType="com.zgl.mybatis.plus.entity.Goods">
 		update goods set status = #{status}, version = version + 1 where id = #{id} and version = #{version}
 	</update>
+
+	<update id = "updateGoodsByNameSurplus" parameterType = "java.util.Map" >
+		update goods set surplus = #{surplus} - #{count} where id = #{id} and #{surplus} - #{count} >= 0
+	</update>
 </mapper>

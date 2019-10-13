@@ -31,6 +31,16 @@ public class Goods implements Serializable {
 
     private Integer version;
 
+	public Integer getSurplus() {
+		return surplus;
+	}
+
+	public void setSurplus(Integer surplus) {
+		this.surplus = surplus;
+	}
+
+	private Integer surplus;
+
 	public Integer getId() {
 		return id;
 	}

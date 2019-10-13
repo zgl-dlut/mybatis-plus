@@ -17,4 +17,9 @@ public interface GoodsService extends IService<Goods> {
 	 * 乐观锁-版本号方法
 	 */
 	void updateGoodsByIdVersion();
+
+	/**
+	 * 扣减库存
+	 */
+	void updateGoodsByNameSurplus(String name, int count);
 }

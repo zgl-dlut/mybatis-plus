@@ -3,6 +3,9 @@ package com.zgl.mybatis.plus.mapper;
 import com.zgl.mybatis.plus.entity.Goods;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.Map;
 
 /**
  * <p>
@@ -16,4 +19,6 @@ import org.apache.ibatis.annotations.Mapper;
 public interface GoodsMapper extends BaseMapper<Goods> {
 
 	int updateGoodsByIdVersion(Goods goods);
+
+	int updateGoodsByNameSurplus(Map<String, Object> paramMap);
 }
