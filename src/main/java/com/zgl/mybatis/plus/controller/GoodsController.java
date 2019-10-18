@@ -27,7 +27,7 @@ public class GoodsController {
 	@GetMapping("/updateGoodsByIdVersion")
 	public void updateGoodsByIdVersion() {
 		for (int i = 0; i < 20; i++) {
-			new Thread(() -> goodsService.updateGoodsByIdVersion(), String.valueOf(i)).start();
+			new Thread(() -> goodsService.updateGoodsByIdVersion(5), String.valueOf(i)).start();
 		}
 	}
 
@@ -35,6 +35,20 @@ public class GoodsController {
 	public void updateGoodsByNameSurplus() {
 		for (int i = 0; i < 100; i++) {
 			new Thread(() -> goodsService.updateGoodsByNameSurplus("篮球", 5), String.valueOf(i)).start();
+		}
+	}
+
+	@GetMapping("/updateGoodsByCAS")
+	public void updateGoodsByCAS() {
+		for (int i = 0; i < 20; i++) {
+			new Thread(() -> goodsService.updateGoodsByCAS("篮球", 5), String.valueOf(i)).start();
+		}
+	}
+
+	@GetMapping("/selectForUpdateById")
+	public void selectForUpdateById() {
+		for (int i = 0; i < 20; i++) {
+			new Thread(() -> goodsService.selectForUpdateById(5), String.valueOf(i)).start();
 		}
 	}
 }

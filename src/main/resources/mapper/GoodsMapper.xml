@@ -3,10 +3,18 @@
 <mapper namespace="com.zgl.mybatis.plus.mapper.GoodsMapper">
 
 	<update id = "updateGoodsByIdVersion" parameterType="com.zgl.mybatis.plus.entity.Goods">
-		update goods set status = #{status}, version = version + 1 where id = #{id} and version = #{version}
+		update goods set surplus = #{surplus}, version = version + 1 where id = #{id} and version = #{version}
 	</update>
 
 	<update id = "updateGoodsByNameSurplus" parameterType = "java.util.Map" >
 		update goods set surplus = #{surplus} - #{count} where id = #{id} and #{surplus} - #{count} >= 0
 	</update>
+
+	<update id = "updateGoodsByCAS" parameterType="java.util.Map">
+		update goods set surplus = #{surplus} - #{count} where id = #{id} and surplus = #{surplus}
+	</update>
+
+	<select id = "selectForUpdateById" parameterType="int" resultType="com.zgl.mybatis.plus.entity.Goods">
+		select * from goods where id = #{id} for update
+	</select>
 </mapper>

@@ -21,4 +21,8 @@ public interface GoodsMapper extends BaseMapper<Goods> {
 	int updateGoodsByIdVersion(Goods goods);
 
 	int updateGoodsByNameSurplus(Map<String, Object> paramMap);
+
+	int updateGoodsByCAS(Map<String, Object> paramMap);
+
+	Goods selectForUpdateById(@Param("id") int id);
 }
